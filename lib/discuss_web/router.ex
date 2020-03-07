@@ -16,10 +16,16 @@ defmodule DiscussWeb.Router do
   scope "/", DiscussWeb do
     pipe_through :browser
 
-    get "/", TopicController, :index
-    get "/topics/new", TopicController, :new
+    # get "/", TopicController, :index
+    # get "/topics/new", TopicController, :new
+    # post "/topics", TopicController, :create
+    # get "/topics/:id/edit", TopicController, :edit
+    # put "/topics/:id", TopicController, :update
 
-    post "/topics", TopicController, :create 
+    # shortcut to achieve all of the code commented out above
+    # only works if RESTful convention is precisely followed
+    # but /topics is now removed from the URL namespace
+    resources "/", TopicController
   end
 
   # Other scopes may use custom stacks.
